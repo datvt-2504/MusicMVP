@@ -1,18 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerSongs"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@+id/viewCurrentSongPlay"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/groupBottomPlay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        app:constraint_referenced_ids="
+            viewCurrentSongPlay,
+            imageSong,
+            textTitleSongCurrent,
+            buttonPlaySong,
+            buttonNextSong,
+            buttonPreviousSong,
+            " />
+
+    <View
+        android:id="@+id/viewCurrentSongPlay"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_onahau"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintDimensionRatio="h, 4.5:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageSong"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_music_note"
+        app:layout_constraintBottom_toBottomOf="@id/viewCurrentSongPlay"
+        app:layout_constraintDimensionRatio="0.7:1"
+        app:layout_constraintStart_toStartOf="@id/viewCurrentSongPlay"
+        app:layout_constraintTop_toTopOf="@id/viewCurrentSongPlay" />
+
+    <TextView
+        android:id="@+id/textTitleSongCurrent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp_5"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/sp_16"
+        app:layout_constraintBottom_toBottomOf="@+id/viewCurrentSongPlay"
+        app:layout_constraintEnd_toStartOf="@+id/buttonPreviousSong"
+        app:layout_constraintStart_toEndOf="@+id/imageSong"
+        app:layout_constraintTop_toTopOf="@+id/viewCurrentSongPlay" />
+
+    <ImageButton
+        android:id="@+id/buttonPreviousSong"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp_5"
+        android:background="@android:color/transparent"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_skip_previous"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/buttonPlaySong"
+        app:layout_constraintTop_toTopOf="@+id/viewCurrentSongPlay" />
+
+    <ImageButton
+        android:id="@+id/buttonPlaySong"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp_5"
+        android:background="@android:color/transparent"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_pause"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/buttonNextSong"
+        app:layout_constraintTop_toTopOf="@+id/viewCurrentSongPlay" />
+
+    <ImageButton
+        android:id="@+id/buttonNextSong"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp_5"
+        android:background="@android:color/transparent"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_skip_next"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/viewCurrentSongPlay" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
