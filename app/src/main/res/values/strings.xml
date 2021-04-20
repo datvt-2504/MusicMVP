@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">DemoMusicMVP</string>
+    <string name="title_song_playing_state">Playing</string>
 </resources>
